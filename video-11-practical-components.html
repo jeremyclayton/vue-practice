@@ -5,15 +5,27 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.2/css/bulma.css">
+    <style >
+        body { padding-top: 40px}
+    </style>
 </head>
 
 
 <body>
-    <div id="root">
-        <!-- Button trigger modal -->
-    <modal v-if="showModal" @close="showModal = false"></modal>
+    <div id="root" class="container">
+        <tabs>
+            <tab name="about us" :selected="true">
+            <h1>Here is where content goes</h1>
+        </tabs>
+        <tabs>
+            <tab name="about our culture">
+            <h1>Here is where content goes</h1>
+        </tabs>
+        <tabs>
+            <tab name="about our vision">
+            <h1>Here is where content goes</h1>
+        </tabs>
 
-    <button @click="showModal = true" >Show Modal</button>
     </div>
 
 

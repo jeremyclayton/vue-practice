@@ -1,21 +1,41 @@
-Vue.component('modal', {
+Vue.component('tabs', {
     template:
     `
-    <div class="modal is-active">
-  <div class="modal-background"></div>
-  <div class="modal-content">
-    <div class="box">
-        <p>ashahs asg ahsg ajhsg ahsga jhags ahjgs ajhga sjhags ajhg ashjags kjhg asjhagsasgajh ajgsh ajhsg </p>
-    </div>
-  </div>
-  <button class="modal-close" @click="$emit('close')"></button>
+    <div>
+    <div class="tabs">
+  <ul>
+        <li v-for="tab in tabs> :class="{ is-active}" "
+        <a href=#> {{tab.name}}</a>
+        </li>
+  </ul>
 </div>
-    `
+
+    <div class="tabs-details">
+        <slot></slot>
+    </div>
+
+    </div>
+    `,
+    data(){
+        return { tabs: []};
+    },
+    created(){
+        this.tabs = this.$children;
+    }
+});
+
+Vue.component('tab', {
+    template: `
+        <div><slot></slot></div>
+    `,
+    
+    props: {
+        name: {required: true},
+        selected: { default: false}
+    }
 });
 new Vue ({
     el: '#root',
 
-    data: {
-        showModal: false
-    }
+
 });
