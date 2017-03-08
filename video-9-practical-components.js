@@ -1,18 +1,29 @@
-Vue.component('task', {
-    template: '<li><slot></slot></li>'
-});
-
-Vue.component('task-list', {
-    template: '<div><task v-for="task in tasks">{{task.task}}</task></div>',
+Vue.component('personal-well', {
+    props: ['body'],
 
     data(){
         return {
-            tasks: [
-                {task: 'Go to the store', complete: true},
-                {task: 'Go to the bank', complete: true},
-                {task: 'Go to the mountain', complete: true},
-
-            ]
+            isVisable: true
         };
+    },
+    template: `
+    <div class="well" v-show="isVisable">
+    {{ body }}
+
+    <button type="button" v-on:click="hideModel">close</button>
+    </div>
+    `,
+
+    methods: {
+        hideModel(){
+            this.isVisable = false;
+        }
     }
+});
+
+
+
+
+new Vue ({
+    el: '#root'
 });
