@@ -16,8 +16,3 @@ Vue.component('task-list', {
         };
     }
 });
-
-
-new Vue ({
-    el: '#root'
-});
